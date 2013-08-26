@@ -1,10 +1,10 @@
 """
-run_pcaproj
-Main file for running the projection algorithm
-1) import statistical model
-2) project statistical model to 2D
-3) align statistical model with 2D airway
-4) optimise the fit of the statistical components
+Example1
+This example is used to demo the brute force silhouette detection for a 3D mesh
+
+1) Loads an example airway mesh
+2) Identifies the silhouette points (This is slow for a large mesh)
+3) Projects the silhouette points onto a 2D plane
 
 Benjamin Irving
 2013 / 08 / 25
@@ -14,20 +14,15 @@ print __doc__
 
 #Python modules
 import numpy as np
-import time, copy, os, pickle
-import matplotlib.pyplot as plt
-import scipy.optimize as opt
-import scipy.ndimage as nd
+import mayavi.mlab as mlab
 
 #My modules
-import Optimisation_Fitting as ofit
-import point_man_class as pmc
+# projecting meshes
 import mesh3D_mod.project_module as pm
+#mesh processing
 import mesh3D_mod.mesh_class as mc
-from mesh3D_mod import meshplot_module
+#loading mesh data
 from importdata.matinteract_module import H5fileData
-import image2D.imagefilt2D_module as ft
-import mayavi.mlab as mlab
         
     
 # Viewing direction
@@ -46,6 +41,7 @@ MHexam=mc.SilhouetteMesh(faces=math5.pyexammesh_faces, vertices=math5.pyexammesh
                style="matlab")
 
 #rotation and update of vertices
+#The mesh can be rotated by any angle to get a different projection perspective
 n11=0.05*np.pi
 n22=0.05*np.pi
 

@@ -1,4 +1,4 @@
-Mesh Silhouette Projection
+Mesh and Principal Component Silhouette Projection
 ==========================
 
 This is the demo code for the following paper, 
