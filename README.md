@@ -10,3 +10,11 @@ To be presented at the Fifth International Workshop on Pulmonary Image Analysis 
 
 
 ***Creation of examples, instructions and cleaning up of the code is still in progress***
+
+***Dependencies***
+
+***Installation***
+
+***Running Examples***
+
+***Example Outputs***
