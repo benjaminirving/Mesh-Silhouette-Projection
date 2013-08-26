@@ -63,27 +63,43 @@ MH.input_pca(P=math5.P, V=math5.V, points=math5.pyairpoints, skel=math5.pyairske
 n11=0.05*np.pi
 n22=0.05*np.pi
 
-#3D mesh
+#Moving along 1 model of variation (One extreme)
 MH.reset_mesh()
-eigenvalues=np.array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])  
+eigenvalues=np.array([0.0, 0.2, 0., 0., 0., 0., 0., 0., 0., 0., 0.])  
 eigenvalues=eigenvalues.reshape((eigenvalues.shape[0], 1))
 MH.prin_comp_trans(eigenvalues)
-
 MH.scale_mesh(scale1)
 MH.rotate_mesh(n11, "xy")
 MH.rotate_mesh(n22, "zx")
-
 #Initialisation of edges
 MH.unique_edges()
 #Identification of edges
 MH.silhouette_vertices("Lodox", ViewP)
 #projecting alignment points
-
 points_proj=pm.project_points_ss(MH.silvert1, l0=ViewP, p0=p0) 
-
 #PLOT 1: Plotting the projection (deformed statistical model)
-meshplot_module.plot_big(MH, [], points_proj, [], [], ViewP, proj_type, plot_type="simple", fnum=2)
-#mlab.savefig("test1.x3d")
-#mlab.savefig("figures_thesis/mean_model2.png", magnification=2)
+meshplot_module.plot_big(MH, [], points_proj, [], [], ViewP, proj_type, 
+	plot_type="simple", fnum=1)
+
+#Moving along 1 model of variation (Other extreme)
+#Moving along 1 model of variation (One extreme)
+MH.reset_mesh()
+eigenvalues=np.array([0.0, -0.2, 0., 0., 0., 0., 0., 0., 0., 0., 0.])  
+eigenvalues=eigenvalues.reshape((eigenvalues.shape[0], 1))
+MH.prin_comp_trans(eigenvalues)
+MH.scale_mesh(scale1)
+MH.rotate_mesh(n11, "xy")
+MH.rotate_mesh(n22, "zx")
+#Initialisation of edges
+MH.unique_edges()
+#Identification of edges
+MH.silhouette_vertices("Lodox", ViewP)
+#projecting alignment points
+points_proj=pm.project_points_ss(MH.silvert1, l0=ViewP, p0=p0) 
+#PLOT 1: Plotting the projection (deformed statistical model)
+meshplot_module.plot_big(MH, [], points_proj, [], [], ViewP, proj_type, 
+	plot_type="simple", fnum=2)
+
+
 mlab.show()
 
