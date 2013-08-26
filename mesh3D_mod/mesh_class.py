@@ -221,6 +221,7 @@ class PcaMesh(SilhouetteMesh):
         
         self.skel=skel
         self.skel_o=self.skel
+        
     #transforming the mean mesh along one mode by amount by a
     def prin_comp_trans(self, a):
         # check existence of attributes
