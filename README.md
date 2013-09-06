@@ -15,12 +15,12 @@ To be presented at the Fifth International Workshop on Pulmonary Image Analysis 
 
 Python libraries:
 
-time, copy, os
-pickle
-matplotlib
-numpy
-scipy
-mayavi
+- time, copy, os
+- pickle
+- matplotlib
+- numpy
+- scipy
+- mayavi
 
 
 ***Installation***
