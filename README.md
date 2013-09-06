@@ -11,9 +11,7 @@ Benjamin Irving, Tania Douglas, Paul Taylor. 2D X-ray airway tree segmentation b
 
 To be presented at the Fifth International Workshop on Pulmonary Image Analysis (www.lungworkshop.org)
 
-
-
-***Dependencies***
+##Dependencies
 
 Python libraries:
 - time, copy, os
@@ -24,7 +22,7 @@ Python libraries:
 - mayavi
 
 
-***Installation***
+##Installation
 
 The c++ component needs to first be compiled for your os and wrapped for python using swig. 
 (Only tested on linux so far)
@@ -46,13 +44,14 @@ sc.py - Automatically created. Provides the link between the two languages.
 
 This c++ object is now callable from the python 3D processing class. 
 
-***Running Examples***
-`python Example1_mesh_silhouette_and_projection.py`
+##Running Examples
 
+`python Example1_mesh_silhouette_and_projection.py`
 
 `python Example2_pca_mesh.py`
 
 `python Example3_centreline_landmark_projection.py`
 
 ...
-***Example Outputs***
+
+##Example Outputs
