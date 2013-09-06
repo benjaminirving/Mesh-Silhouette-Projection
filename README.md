@@ -12,8 +12,18 @@ To be presented at the Fifth International Workshop on Pulmonary Image Analysis 
 ***Creation of examples, instructions and cleaning up of the code is still in progress***
 
 ***Dependencies***
+Python libraries:
+time, copy, os
+pickle
+matplotlib
+numpy
+scipy
+mayavi
+
 
 ***Installation***
+c++ components need to first be compiled for your os. For compiling c++ components
+Requirements: swig
 
 ***Running Examples***
 
