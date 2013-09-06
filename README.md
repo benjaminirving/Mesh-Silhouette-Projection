@@ -47,17 +47,12 @@ sc.py - Automatically created. Provides the link between the two languages.
 This c++ object is now callable from the python 3D processing class. 
 
 ***Running Examples***
-``` bash
-python Example1_mesh_silhouette_and_projection.py
-```
+`python Example1_mesh_silhouette_and_projection.py`
 
-``` bash
-python Example2_pca_mesh.py
-```
 
-``` bash
-python Example3_centreline_landmark_projection.py
-```
+`python Example2_pca_mesh.py`
+
+`python Example3_centreline_landmark_projection.py`
 
 ...
 ***Example Outputs***
