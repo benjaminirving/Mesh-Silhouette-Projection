@@ -29,10 +29,8 @@ c++ components need to first be compiled for your os. For compiling c++ componen
 
 - Requirements: swig
 
-``` csharp
-private void index(){
-MessageBox.Show("hello world");
-}
+``` bash
+cd mesh3D_mod
 ```
 
 
