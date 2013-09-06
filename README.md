@@ -24,7 +24,7 @@ Python libraries:
 
 ***Installation***
 
-The c++ component needs to first be compiled for your os
+The c++ component needs to first be compiled for your os and wrapped for python using swig. 
 (Only tested on linux so far)
 
 - Requirements: swig
