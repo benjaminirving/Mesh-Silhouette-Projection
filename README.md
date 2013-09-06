@@ -29,6 +29,8 @@ The c++ component needs to first be compiled for your os and wrapped for python 
 
 - Requirements: swig
 
+Using linux:
+
 ``` bash
 cd mesh3D_mod
 swig -c++ -python -o MeshProject_wrap.cpp MeshProject.i
