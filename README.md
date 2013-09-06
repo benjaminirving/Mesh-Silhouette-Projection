@@ -31,6 +31,9 @@ c++ components need to first be compiled for your os. For compiling c++ componen
 
 ``` bash
 cd mesh3D_mod
+swig -c++ -python -o MeshProject_wrap.cpp MeshProject.i
+gcc -fPIC $(python-config --includes) -c MeshProject_wrap.cpp MeshProject.cpp
+g++ -shared MeshProject_wrap.o MeshProject.o -o _MeshProject.so
 ```
 
 
