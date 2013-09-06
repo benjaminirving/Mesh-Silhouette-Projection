@@ -24,7 +24,7 @@ Python libraries:
 
 ***Installation***
 
-c++ components need to first be compiled for your os. For compiling c++ components. 
+The c++ component needs to first be compiled for your os
 (Only tested on linux so far)
 
 - Requirements: swig
@@ -35,7 +35,7 @@ swig -c++ -python -o MeshProject_wrap.cpp MeshProject.i
 gcc -fPIC $(python-config --includes) -c MeshProject_wrap.cpp MeshProject.cpp
 g++ -shared MeshProject_wrap.o MeshProject.o -o _MeshProject.so
 ```
-
+This c++ object is now callable from the python 3D processing class. 
 
 ***Running Examples***
 
