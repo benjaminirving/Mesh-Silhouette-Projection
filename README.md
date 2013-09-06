@@ -35,10 +35,15 @@ Using linux:
 
 ``` bash
 cd mesh3D_mod
-swig -c++ -python -o MeshProject_wrap.cpp MeshProject.i
-gcc -fPIC $(python-config --includes) -c MeshProject_wrap.cpp MeshProject.cpp
-g++ -shared MeshProject_wrap.o MeshProject.o -o _MeshProject.so
+swig -c++ -python -o sc_wrap.cpp sc.i
+gcc -fPIC $(python-config --includes) -c sc_wrap.cpp sc.cpp
+g++ -shared sc_wrap.o sc.o -o _sc.so
 ```
+
+sc.i - Settings that define the swig compilation
+sc.cpp -c++ class code. 
+sc.py - Automatically created. Provides the link between the two languages. 
+
 This c++ object is now callable from the python 3D processing class. 
 
 ***Running Examples***
