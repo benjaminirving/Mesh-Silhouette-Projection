@@ -14,7 +14,6 @@ To be presented at the Fifth International Workshop on Pulmonary Image Analysis 
 ***Dependencies***
 
 Python libraries:
-
 - time, copy, os
 - pickle
 - matplotlib
@@ -25,9 +24,17 @@ Python libraries:
 
 ***Installation***
 
-c++ components need to first be compiled for your os. For compiling c++ components
+c++ components need to first be compiled for your os. For compiling c++ components. 
+(Only tested on linux so far)
 
-Requirements: swig
+- Requirements: swig
+
+``` csharp
+private void index(){
+MessageBox.Show("hello world");
+}
+```
+
 
 ***Running Examples***
 
