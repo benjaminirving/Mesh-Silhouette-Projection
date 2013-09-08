@@ -9,11 +9,10 @@ or loads vertices and faces
 """
 
 import h5py
-from numpy import ones, cos, sin, zeros, sqrt
+from numpy import cos, sin, zeros, sqrt
 from numpy import array, dot
 import numpy as np
 from mesh_silhouette_cpp import *
-from numpy.linalg import inv
 
 class Mesh:
     """
@@ -85,14 +84,17 @@ class Mesh:
         if hasattr(self, 'points'):
             self.points[:,2]=vz.max() - (self.points[:,2]-vz.min())
             
-    def rotate_mesh(self, angle1=1.5708, type="xy"):
+        if hasattr(self, 'skel'):
+            self.skel[:,2]=vz.max() - (self.skel[:,2]-vz.min())
+            
+    def rotate_mesh(self, angle1=1.5708, type1="xy"):
         """     Rotate mesh in x,y plane around the CM """
         # points -  vertices of mesh
         # angle1 -  angle of rotation
         #Mesh rotation
-        if type=="xy":
+        if type1=="xy":
             ax1=(0,1)
-        elif type=="zx":
+        elif type1=="zx":
             ax1=(0,2)
         
         R=np.array([[cos(angle1), -sin(angle1)], [sin(angle1), cos(angle1)]])
@@ -100,26 +102,14 @@ class Mesh:
         
         if hasattr(self, 'points'):
             self.points=self.rot1(self.points, ax1, R)       
-        
-#        #Total rotation
-#        if type=="xy":
-#            self.rot_mat_totxy=np.dot(R, self.rot_mat_totxy)
-#        elif type=="zx":
-#            self.rot_mat_totxz=np.dot(R, self.rot_mat_totxz)
             
-#    def rotate_rev_all(self):
-#        """ Reverse all rotations that have been performed """
-#        self.vertices=self.rot1(self.vertices, (0,1), inv(self.rot_mat_totxy))
-#        self.vertices=self.rot1(self.vertices, (0,2), inv(self.rot_mat_totxz))
+        if hasattr(self, 'skel'):
+            self.skel=self.rot1(self.skel, ax1, R)    
         
-#    def rotate_back_all(self):
-#        """ Rotate back """
-#        self.vertices=self.rot1(self.vertices, (0,1), self.rot_mat_totxy)
-#        self.vertices=self.rot1(self.vertices, (0,2), self.rot_mat_totxz)
         
     @staticmethod
     def rot1(array1, ax1, R):
-        print array1
+        #print array1
         array2=array1[:,ax1].transpose()
         array2=np.dot(R, array2)
         array1[:,ax1]=array2.transpose()
@@ -133,10 +123,10 @@ class Mesh:
     def scale_mesh(self, scale_factor=1):
         self.vertices=self.vertices * scale_factor
         
-    def reset_mesh(self)
-    """
-     
-    """
+    def reset_mesh(self):
+        """
+        Reset mesh back to the original 
+        """
         self.vertices=self.verticeso
         self.faces=self.faceso
 
@@ -207,12 +197,13 @@ class SilhouetteMesh(Mesh):
             
             
 class PcaMesh(SilhouetteMesh):
+    
     """
     This class allows PCA operations on a mesh.
     Derived from the basic operations on the Mesh class.
     """
     
-    def input_pca(self, P, V, points=[0, 0, 0]):
+    def input_pca(self, P, V, points=[0, 0, 0], skel=[0, 0, 0]):
         """
         P and V seem to have been flipped during import. Corrected. 
         Therefore: 
@@ -223,9 +214,13 @@ class PcaMesh(SilhouetteMesh):
         #input P (modes x points)
         self.P=P
         self.V=V
-        self.points=points;
+        self.points=points
+        self.points_o=self.points
 #        self.points[:,[0,1]]=self.points[:,[1,0]]
         self.mnum=self.P.shape[1] # number of modes
+        
+        self.skel=skel
+        self.skel_o=self.skel
         
     #transforming the mean mesh along one mode by amount by a
     def prin_comp_trans(self, a):
@@ -234,16 +229,24 @@ class PcaMesh(SilhouetteMesh):
         #x= x_ave + P*(mode)*amount
         
         b=zeros((self.mnum, 1))
-        print a.shape[0]
+        #print a.shape[0]
         b[0:a.shape[0]]=a
-        b=b*3*sqrt(self.V[0:25,0])
+        #b=b*3*sqrt(self.V[0:25,0])
         shift=dot(self.P, b)
         
         self.vertices=self.vertices + self.three_col(shift)
         
     def scale_mesh(self, scale_factor=1):
-            Mesh.scale_mesh(self, scale_factor)
-            self.points=self.points * scale_factor
+        Mesh.scale_mesh(self, scale_factor)
+        
+        self.points=self.points * scale_factor
+        self.skel=self.skel * scale_factor
+            
+    def reset_mesh(self):
+        Mesh.reset_mesh(self)
+        
+        self.points=self.points_o
+        self.skel=self.skel_o
         
         
     @staticmethod

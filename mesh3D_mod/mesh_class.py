@@ -12,7 +12,7 @@ import h5py
 from numpy import cos, sin, zeros, sqrt
 from numpy import array, dot
 import numpy as np
-from mesh_silhouette_cpp import *
+from sc import *
 
 class Mesh:
     """
