@@ -1,6 +1,9 @@
 Mesh and Principal Component Silhouette Projection
 ==========================
 
+***NB! [Still incomplete. Creation of examples, instructions and cleaning up of the code is still in progress]***
+
+
 This is the demo code for the following paper, 
 
 Benjamin Irving, Tania Douglas, Paul Taylor. 2D X-ray airway tree segmentation by 
@@ -8,13 +11,47 @@ Benjamin Irving, Tania Douglas, Paul Taylor. 2D X-ray airway tree segmentation b
 
 To be presented at the Fifth International Workshop on Pulmonary Image Analysis (www.lungworkshop.org)
 
+##Dependencies
 
-***Creation of examples, instructions and cleaning up of the code is still in progress***
+Python libraries:
+- time, copy, os
+- pickle
+- matplotlib
+- numpy
+- scipy
+- mayavi
 
-***Dependencies***
 
-***Installation***
+##Installation
 
-***Running Examples***
+The c++ component needs to first be compiled for your os and wrapped for python using swig. 
+(Only tested on linux so far)
 
-***Example Outputs***
+- Requirements: swig
+
+Using linux:
+
+``` bash
+cd mesh3D_mod
+swig -c++ -python -o sc_wrap.cpp sc.i
+gcc -fPIC $(python-config --includes) -c sc_wrap.cpp sc.cpp
+g++ -shared sc_wrap.o sc.o -o _sc.so
+```
+
+sc.i - Settings that define the swig compilation
+sc.cpp -c++ class code. 
+sc.py - Automatically created. Provides the link between the two languages. 
+
+This c++ object is now callable from the python 3D processing class. 
+
+##Running Examples
+
+`python Example1_mesh_silhouette_and_projection.py`
+
+`python Example2_pca_mesh.py`
+
+`python Example3_centreline_landmark_projection.py`
+
+...
+
+##Example Outputs
