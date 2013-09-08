@@ -18,16 +18,16 @@ import time, copy, os, pickle
 import matplotlib.pyplot as plt
 import scipy.optimize as opt
 import scipy.ndimage as nd
+import mayavi.mlab as mlab
 
 #My modules
-import Optimisation_Fitting as ofit
 import point_man_class as pmc
 import mesh3D_mod.project_module as pm
 import mesh3D_mod.mesh_class as mc
 from mesh3D_mod import meshplot_module
 from importdata.matinteract_module import H5fileData
 import image2D.imagefilt2D_module as ft
-import mayavi.mlab as mlab
+
         
 #Input case
 fname='B08'
@@ -65,8 +65,9 @@ n22=0.05*np.pi
 
 #Moving along 1 model of variation (One extreme)
 MH.reset_mesh()
-eigenvalues=np.array([0.0, 0.2, 0., 0., 0., 0., 0., 0., 0., 0., 0.])  
+eigenvalues=np.array([0.0, 1.0, 0., 0., 0., 0., 0., 0., 0., 0., 0.])
 eigenvalues=eigenvalues.reshape((eigenvalues.shape[0], 1))
+eigenvalues=eigenvalues*(3*np.sqrt(MH.V[1:12]))
 MH.prin_comp_trans(eigenvalues)
 MH.scale_mesh(scale1)
 MH.rotate_mesh(n11, "xy")
@@ -84,8 +85,9 @@ meshplot_module.plot_big(MH, [], points_proj, [], [], ViewP, proj_type,
 #Moving along 1 model of variation (Other extreme)
 #Moving along 1 model of variation (One extreme)
 MH.reset_mesh()
-eigenvalues=np.array([0.0, -0.2, 0., 0., 0., 0., 0., 0., 0., 0., 0.])  
+eigenvalues=np.array([0.0, -1.0, 0., 0., 0., 0., 0., 0., 0., 0., 0.])
 eigenvalues=eigenvalues.reshape((eigenvalues.shape[0], 1))
+eigenvalues=eigenvalues*(3*np.sqrt(MH.V[1:12]))
 MH.prin_comp_trans(eigenvalues)
 MH.scale_mesh(scale1)
 MH.rotate_mesh(n11, "xy")

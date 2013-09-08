@@ -20,6 +20,7 @@ import scipy.optimize as opt
 import scipy.ndimage as nd
 
 #My modules
+import Optimisation_Fitting as ofit
 import point_man_class as pmc
 import mesh3D_mod.project_module as pm
 import mesh3D_mod.mesh_class as mc
