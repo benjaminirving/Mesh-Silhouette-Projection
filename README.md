@@ -63,6 +63,7 @@ Example 5 - Shape optimisation
 ##Example Outputs
 
 Example 1:
+<img src="example_images/example1.png" alt="Drawing" style="width: 200px;"/>
 ![alt text](example_images/example1.png "Example 1")
 
 Example 2 - Example variation 3 standard deviations along the 2nd mode of variation: 
