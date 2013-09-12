@@ -45,16 +45,30 @@ sc.py - Automatically created. Provides the link between the two languages.
 This c++ object is now callable from the python 3D processing class. 
 
 ##Running Examples
-
+Example 1 - Finding a mesh silhouette:
 `python Example1_mesh_silhouette_and_projection.py`
 
+Example 2 - Plotting example variation of the statistical shape model:
 `python Example2_pca_mesh.py`
 
+Example 3 - Projecting the mean statistical shape model along with landmark points and centreline:
 `python Example3_centreline_landmark_projection.py`
+
+Example 4 - Rigid alignment
+
+Example 5 - Shape optimisation
 
 ...
 
 ##Example Outputs
 
-![alt text](example_images/Selection_117.png "Example 1")
+Example 1:
+![alt text](example_images/example1.png "Example 1")
+
+Example 2 - Example variation 3 standard deviations along the 2nd mode of variation: 
+![alt text](example_images/example2a.png "Example 2a")
+![alt text](example_images/example2b.png "Example 2b")
+
+Example 3:
+![alt text](example_images/example3.png "Example 3")
 
