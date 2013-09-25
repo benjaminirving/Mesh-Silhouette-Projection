@@ -47,6 +47,7 @@ This c++ object is now callable from the python 3D processing class.
 ##Running Examples
 Example 1 - Finding a mesh silhouette:
 `python Example1_mesh_silhouette_and_projection.py`
+(this example is slow because silhouette detection is applied to a very large mesh)
 
 Example 2 - Plotting example variation of the statistical shape model:
 `python Example2_pca_mesh.py`
