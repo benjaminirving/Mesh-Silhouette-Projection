@@ -1,13 +1,13 @@
 Mesh and Principal Component Silhouette Projection
 ==========================
 
-***NB! [Still incomplete. Creation of examples, instructions and cleaning up of the code is still in progress]***
-
 
 This is the demo code for the following paper, 
 
 Benjamin Irving, Tania Douglas, Paul Taylor. 2D X-ray airway tree segmentation by 
 3D deformable model projection and registration
+
+http://www.birving.com/papers/B_Irving_2D_Xray_airway_tree_segmentation_by_3D_deformable_model_projection_and_registration.pdf
 
 To be presented at the Fifth International Workshop on Pulmonary Image Analysis (www.lungworkshop.org)
 
