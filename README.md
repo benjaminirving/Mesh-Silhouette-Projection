@@ -1,13 +1,13 @@
 Mesh and Principal Component Silhouette Projection
 ==========================
 
-***NB! [Still incomplete. Creation of examples, instructions and cleaning up of the code is still in progress]***
-
 
 This is the demo code for the following paper, 
 
 Benjamin Irving, Tania Douglas, Paul Taylor. 2D X-ray airway tree segmentation by 
 3D deformable model projection and registration
+
+http://www.birving.com/papers/B_Irving_2D_Xray_airway_tree_segmentation_by_3D_deformable_model_projection_and_registration.pdf
 
 To be presented at the Fifth International Workshop on Pulmonary Image Analysis (www.lungworkshop.org)
 
@@ -47,6 +47,7 @@ This c++ object is now callable from the python 3D processing class.
 ##Running Examples
 Example 1 - Finding a mesh silhouette:
 `python Example1_mesh_silhouette_and_projection.py`
+(this example is slow because silhouette detection is applied to a very large mesh)
 
 Example 2 - Plotting example variation of the statistical shape model:
 `python Example2_pca_mesh.py`
@@ -63,12 +64,15 @@ Example 5 - Shape optimisation
 ##Example Outputs
 
 Example 1:
+
 ![alt text](example_images/example1.png "Example 1")
 
 Example 2 - Example variation 3 standard deviations along the 2nd mode of variation: 
+
 ![alt text](example_images/example2a.png "Example 2a")
 ![alt text](example_images/example2b.png "Example 2b")
 
 Example 3:
+
 ![alt text](example_images/example3.png "Example 3")
 
