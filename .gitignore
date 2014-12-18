@@ -3,6 +3,7 @@
 .idea
 sc.py
 sc_wrap.cpp
+*.pyc
 
 ### Python template
 # Byte-compiled / optimized / DLL files
