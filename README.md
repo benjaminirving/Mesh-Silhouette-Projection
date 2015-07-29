@@ -11,6 +11,8 @@ http://www.birving.com/papers/B_Irving_2D_Xray_airway_tree_segmentation_by_3D_de
 
 To be presented at the Fifth International Workshop on Pulmonary Image Analysis (www.lungworkshop.org)
 
+Note that only the mesh operations and not the optimisation method is included at the moment due to the challenge of finding 2D x-ray data that can be released. Please contact me if you would like the remainder of the code. 
+
 ##Dependencies
 
 Python libraries:
